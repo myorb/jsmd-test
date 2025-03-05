@@ -1,5 +1,6 @@
 import FilterBar from "@/components/FilterBar"
 import ExperiencesList from "@/components/ExperiencesList";
+import { Suspense } from 'react';
 
 import experiences from '@/data/experiences.json';
 
@@ -21,8 +22,10 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">JSMD Experiences</h1>
-      <FilterBar locations={allLocations} maxFilterPrice={maxPrice}/>
-      <ExperiencesList experiences={experiences} />
+      <Suspense fallback={<div>Loading ...</div>}>
+        <FilterBar locations={allLocations} maxFilterPrice={maxPrice}/>
+        <ExperiencesList experiences={experiences} />
+      </Suspense>
     </div>
   )
 }

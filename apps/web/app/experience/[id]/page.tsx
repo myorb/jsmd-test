@@ -3,7 +3,7 @@ import Calendar from "@/components/Calendar"
 import experiences from '@/data/experiences.json';
 import type { Experience } from "@/types"
 
-export default async function ExperiencePage({ params }: { params: { id: string } }) {
+export default async function ExperiencePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const experience = experiences.find((exp) => String(exp.id) === id) as unknown as Experience
 
