@@ -1,0 +1,334 @@
+[
+    {
+        "id": 1,
+        "title": "Parachuting Experience",
+        "description": "Experience the thrill of a lifetime with our parachuting activity.",
+        "price": 200,
+        "strikePrice": 180,
+        "numberOfPeople": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1507591663-7404901fc7b9",
+        "locations": [
+            "Berlin",
+            "Munich"
+        ],
+        "timeSlots": {
+            "Berlin": [
+                "2025-01-20T10:00",
+                "2025-01-20T11:00",
+                "2025-01-20T12:00"
+            ],
+            "Munich": [
+                "2025-01-22T14:00",
+                "2025-01-23T16:00"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "title": "Cooking Class",
+        "description": "Learn to cook delicious meals with a professional chef.",
+        "price": 100,
+        "strikePrice": null,
+        "numberOfPeople": 5,
+        "imageUrl": "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf",
+        "locations": [
+            "Hamburg"
+        ],
+        "timeSlots": {
+            "Hamburg": [
+                "2025-01-15T18:00",
+                "2025-01-15T13:00",
+                "2025-01-16T20:00"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "title": "Alpaca Walk",
+        "description": "Enjoy a peaceful walk in nature with our friendly alpacas.",
+        "price": 50,
+        "strikePrice": 45,
+        "numberOfPeople": 2,
+        "imageUrl": "https://images.unsplash.com/photo-1620661739723-e201b8c3bf0c",
+        "locations": [
+            "Cologne",
+            "Stuttgart"
+        ],
+        "timeSlots": {
+            "Cologne": [
+                "2025-01-18T10:00",
+                "2025-01-18T12:00"
+            ],
+            "Stuttgart": [
+                "2025-01-19T14:00",
+                "2025-01-20T16:00"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "title": "Flight Simulation",
+        "description": "Experience the thrill of flying a commercial jet in our realistic simulator.",
+        "price": 300,
+        "strikePrice": 250,
+        "numberOfPeople": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1493673155827-a7617e74a0ca",
+        "locations": [
+            "Frankfurt"
+        ],
+        "timeSlots": {
+            "Frankfurt": [
+                "2025-01-22T10:00",
+                "2025-01-23T15:00"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "title": "Wine Tasting Tour",
+        "description": "Savor the finest wines in a guided tasting tour in beautiful vineyards.",
+        "price": 120,
+        "strikePrice": 100,
+        "numberOfPeople": 8,
+        "imageUrl": "https://images.unsplash.com/photo-1598306442837-613a3def54ff",
+        "locations": [
+            "Heidelberg",
+            "Trier"
+        ],
+        "timeSlots": {
+            "Heidelberg": [
+                "2025-01-21T14:00",
+                "2025-01-22T16:00"
+            ],
+            "Trier": [
+                "2025-01-23T12:00",
+                "2025-01-24T14:00"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "title": "Photography Workshop",
+        "description": "Master your camera and learn photography from professionals.",
+        "price": 150,
+        "strikePrice": null,
+        "numberOfPeople": 4,
+        "imageUrl": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e",
+        "locations": [
+            "Berlin",
+            "Leipzig"
+        ],
+        "timeSlots": {
+            "Berlin": [
+                "2025-01-25T10:00",
+                "2025-01-26T12:00"
+            ],
+            "Leipzig": [
+                "2025-01-27T14:00",
+                "2025-01-28T16:00"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "title": "Sailing Adventure",
+        "description": "Sail the seas and learn the basics of navigation and seamanship.",
+        "price": 250,
+        "strikePrice": 220,
+        "numberOfPeople": 6,
+        "imageUrl": "https://images.unsplash.com/photo-1540946485063-a40da27545f8",
+        "locations": [
+            "Hamburg",
+            "Kiel"
+        ],
+        "timeSlots": {
+            "Hamburg": [
+                "2025-01-15T10:00",
+                "2025-01-16T14:00"
+            ],
+            "Kiel": [
+                "2025-01-17T12:00",
+                "2025-01-18T16:00"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "title": "Rock Climbing",
+        "description": "Challenge yourself with a guided rock climbing adventure.",
+        "price": 80,
+        "strikePrice": null,
+        "numberOfPeople": 3,
+        "imageUrl": "https://images.unsplash.com/photo-1586627161720-ee2849303aee",
+        "locations": [
+            "Munich",
+            "Nuremberg"
+        ],
+        "timeSlots": {
+            "Munich": [
+                "2025-01-20T09:00",
+                "2025-01-20T11:00"
+            ],
+            "Nuremberg": [
+                "2025-01-21T14:00",
+                "2025-01-22T16:00"
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "title": "Spa Day",
+        "description": "Relax and rejuvenate with a luxurious spa day experience.",
+        "price": 200,
+        "strikePrice": 180,
+        "numberOfPeople": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1615789885218-5d9292457126",
+        "locations": [
+            "Berlin",
+            "Hamburg"
+        ],
+        "timeSlots": {
+            "Berlin": [
+                "2025-01-15T10:00",
+                "2025-01-15T14:00"
+            ],
+            "Hamburg": [
+                "2025-01-16T12:00",
+                "2025-01-17T16:00"
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "title": "Yoga Retreat",
+        "description": "Find your inner peace with a serene yoga retreat.",
+        "price": 300,
+        "strikePrice": null,
+        "numberOfPeople": 10,
+        "imageUrl": "https://images.unsplash.com/photo-1545205597-3d9d02c29597",
+        "locations": [
+            "Dresden",
+            "Leipzig"
+        ],
+        "timeSlots": {
+            "Dresden": [
+                "2025-01-19T08:00",
+                "2025-01-20T10:00"
+            ],
+            "Leipzig": [
+                "2025-01-21T14:00",
+                "2025-01-22T18:00"
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "title": "Art Workshop",
+        "description": "Unleash your creativity with our professional art workshop.",
+        "price": 90,
+        "strikePrice": 80,
+        "numberOfPeople": 5,
+        "imageUrl": "https://images.unsplash.com/photo-1459908676235-d5f02a50184b",
+        "locations": [
+            "Stuttgart",
+            "Heidelberg"
+        ],
+        "timeSlots": {
+            "Stuttgart": [
+                "2025-01-25T10:00",
+                "2025-01-25T13:00"
+            ],
+            "Heidelberg": [
+                "2025-01-26T15:00",
+                "2025-01-27T17:00"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "title": "Horseback Riding",
+        "description": "Ride through scenic trails with a guided horseback riding experience.",
+        "price": 110,
+        "strikePrice": 100,
+        "numberOfPeople": 3,
+        "imageUrl": "https://images.unsplash.com/photo-1512073995635-c7001b907e21",
+        "locations": [
+            "Munich",
+            "Cologne"
+        ],
+        "timeSlots": {
+            "Munich": [
+                "2025-01-18T09:00",
+                "2025-01-19T11:00"
+            ],
+            "Cologne": [
+                "2025-01-20T14:00",
+                "2025-01-21T16:00"
+            ]
+        }
+    },
+    {
+        "id": 13,
+        "title": "Scuba Diving",
+        "description": "Explore the underwater world with our scuba diving lessons.",
+        "price": 350,
+        "strikePrice": 300,
+        "numberOfPeople": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1586508577428-120d6b072945",
+        "locations": [
+            "Frankfurt"
+        ],
+        "timeSlots": {
+            "Frankfurt": [
+                "2025-01-22T10:00",
+                "2025-01-23T12:00"
+            ]
+        }
+    },
+    {
+        "id": 14,
+        "title": "Beer Tasting Tour",
+        "description": "Discover the best craft beers with our guided tasting tour.",
+        "price": 70,
+        "strikePrice": null,
+        "numberOfPeople": 8,
+        "imageUrl": "https://images.unsplash.com/photo-1612528443702-f6741f70a049",
+        "locations": [
+            "Munich",
+            "Berlin"
+        ],
+        "timeSlots": {
+            "Munich": [
+                "2025-01-15T17:00",
+                "2025-01-16T19:00"
+            ],
+            "Berlin": [
+                "2025-01-18T18:00",
+                "2025-01-19T20:00"
+            ]
+        }
+    },
+    {
+        "id": 15,
+        "title": "Balloon Ride",
+        "description": "Soar high above the landscape in a hot air balloon ride.",
+        "price": 400,
+        "strikePrice": 350,
+        "numberOfPeople": 4,
+        "imageUrl": "https://images.unsplash.com/photo-1642700055565-ae01e5c6f627",
+        "locations": [
+            "Trier",
+            "Frankfurt"
+        ],
+        "timeSlots": {
+            "Trier": [
+                "2025-01-20T06:00",
+                "2025-01-21T08:00"
+            ],
+            "Frankfurt": [
+                "2025-01-22T07:00",
+                "2025-01-23T09:00"
+            ]
+        }
+    }
+]
