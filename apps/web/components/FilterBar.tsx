@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/navigation"
 import { addDays, format } from "date-fns"
-import { Calendar as CalendarIcon } from "lucide-react"
+import { Calendar as CalendarIcon, Search } from "lucide-react"
 import { DateRange } from "react-day-picker"
 import { cn } from "@workspace/ui/lib/utils"
 import { Button } from "@workspace/ui/components/button"
@@ -117,12 +117,18 @@ const FilterBar = ({ locations, maxFilterPrice }: FilterBarProps) => {
           className="h-9 px-3 py-1 border rounded"
         />
       </div>
-      <button
+      {/* <button
         type="submit"
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-end"
       >
         Filter
-      </button>
+      </button> */}
+      <div className="flex flex-col self-end">
+        <Button type="submit">
+          <Search />
+          Find
+        </Button>
+      </div>
     </form>
   );
 };
