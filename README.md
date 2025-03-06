@@ -1,31 +1,51 @@
-# shadcn/ui monorepo template
+# JSMD Test App
 
-This template is for creating a monorepo with shadcn/ui.
+This is a sample project to demonstrate the use of `pnpm` for managing dependencies.
+
+## Prerequisites
+
+- Node.js (>= 14.x)
+- `pnpm` (>= 6.x)
+
+## Installation
+
+To install the dependencies, run:
+
+```sh
+pnpm install
+```
+
+## Scripts
+
+Here are some useful scripts you can use:
+
+- `pnpm dev`: Start the development server.
+- `pnpm build`: Build the project for production.
 
 ## Usage
 
-```bash
-pnpm dlx shadcn@latest init
+To start the development server, run:
+
+```sh
+pnpm dev
 ```
 
-## Adding components
+To build the project for production, run:
 
-To add components to your app, run the following command at the root of your `web` app:
-
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
+```sh
+pnpm build
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+To run the format, run:
 
-## Tailwind
-
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/button"
+```sh
+pnpm format
 ```
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.

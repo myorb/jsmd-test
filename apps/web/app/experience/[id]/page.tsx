@@ -1,11 +1,17 @@
-import Image from "next/image"
-import BookingForm from "@/components/BookingForm"
-import experiences from '@/data/experiences.json';
-import type { Experience } from "@/types"
+import Image from "next/image";
+import BookingForm from "@/components/BookingForm";
+import experiences from "@/data/experiences.json";
+import type { Experience } from "@/types";
 
-export default async function ExperiencePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const experience = experiences.find((exp) => String(exp.id) === id) as unknown as Experience
+export default async function ExperiencePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const experience = experiences.find(
+    (exp) => String(exp.id) === id,
+  ) as unknown as Experience;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -25,7 +31,9 @@ export default async function ExperiencePage({ params }: { params: Promise<{ id:
           <div className="mb-4">
             <span className="text-2xl font-bold">${experience.price}</span>
             {experience.strikePrice && (
-              <span className="text-lg text-gray-500 line-through ml-2">${experience.strikePrice}</span>
+              <span className="text-lg text-gray-500 line-through ml-2">
+                ${experience.strikePrice}
+              </span>
             )}
           </div>
           <p className="mb-4">Number of People: {experience.numberOfPeople}</p>
@@ -39,6 +47,5 @@ export default async function ExperiencePage({ params }: { params: Promise<{ id:
         </div>
       </div>
     </div>
-  )
+  );
 }
-

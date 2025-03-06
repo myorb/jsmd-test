@@ -1,32 +1,46 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import type { Experience } from "@/types"
+import { useEffect, useState } from "react";
+import type { Experience } from "@/types";
 
-export default function BookingForm({ experience }: { experience: Experience }) {
-  const [selectedLocation, setSelectedLocation] = useState(experience.locations[0])
-  const [selectedDate, setSelectedDate] = useState("")
-  const [selectedTime, setSelectedTime] = useState("")
+export default function BookingForm({
+  experience,
+}: {
+  experience: Experience;
+}) {
+  const [selectedLocation, setSelectedLocation] = useState(
+    experience.locations[0],
+  );
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
 
   useEffect(() => {
-    setSelectedDate("")
-    setSelectedTime("")
-  }, [selectedLocation])
+    setSelectedDate("");
+    setSelectedTime("");
+  }, [selectedLocation]);
 
   useEffect(() => {
-    setSelectedTime("")
-  }, [selectedDate])
-  
+    setSelectedTime("");
+  }, [selectedDate]);
+
   // Create a unique list of available dates for the selected location.
   const availableDates = selectedLocation
-    ? Array.from(new Set(experience.timeSlots[selectedLocation]?.map(slot => slot.split("T")[0]) || []))
-    : []
+    ? Array.from(
+        new Set(
+          experience.timeSlots[selectedLocation]?.map(
+            (slot) => slot.split("T")[0],
+          ) || [],
+        ),
+      )
+    : [];
 
   // Filter available time slots based on the selected date.
   const availableTimeSlots =
     selectedLocation && selectedDate
-      ? experience.timeSlots[selectedLocation]?.filter(slot => slot.startsWith(selectedDate)) || []
-      : []
+      ? experience.timeSlots[selectedLocation]?.filter((slot) =>
+          slot.startsWith(selectedDate),
+        ) || []
+      : [];
 
   return (
     <div>
@@ -81,12 +95,14 @@ export default function BookingForm({ experience }: { experience: Experience }) 
         <button
           className="w-full bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
           onClick={() => {
-            alert(`Booked ${selectedTime} at ${selectedLocation} on ${selectedDate}`)
+            alert(
+              `Booked ${selectedTime} at ${selectedLocation} on ${selectedDate}`,
+            );
           }}
         >
           Book Experience
         </button>
       )}
     </div>
-  )
+  );
 }

@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from 'react';
-import { format } from "date-fns"
-import { Calendar as CalendarIcon } from "lucide-react"
-import { DateRange } from "react-day-picker"
-import { cn } from "@workspace/ui/lib/utils"
-import { Button } from "@workspace/ui/components/button"
-import { Calendar } from "@workspace/ui/components/calendar"
+import { useEffect, useState } from "react";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { DateRange } from "react-day-picker";
+import { cn } from "@workspace/ui/lib/utils";
+import { Button } from "@workspace/ui/components/button";
+import { Calendar } from "@workspace/ui/components/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@workspace/ui/components/popover"
-import { useQueryState } from 'nuqs';
-import Link from 'next/link';
+} from "@workspace/ui/components/popover";
+import { useQueryState } from "nuqs";
+import Link from "next/link";
 
 interface FilterBarProps {
   locations: string[];
@@ -25,13 +25,13 @@ export default function FilterBar({ locations }: FilterBarProps) {
     clearOnDefault: true,
   });
   const [location, setLocation] = useQueryState("where", {
-    defaultValue: 'all',
+    defaultValue: "all",
     clearOnDefault: true,
   });
 
   const [_, setDateRange] = useQueryState("when");
 
-  const [date, setDate] = useState<DateRange | undefined>()
+  const [date, setDate] = useState<DateRange | undefined>();
 
   const [open, setOpen] = useState(false);
 
@@ -42,8 +42,7 @@ export default function FilterBar({ locations }: FilterBarProps) {
       setDateRange(`${from},${to}`);
       setOpen(false);
     }
-  }
-  , [date])
+  }, [date]);
 
   const priceRange = [
     { label: "Any", value: "0-999999" },
@@ -52,7 +51,7 @@ export default function FilterBar({ locations }: FilterBarProps) {
     { label: "$100 - $200", value: "100-200" },
     { label: "$200 - $500", value: "200-500" },
     { label: "> $500", value: "500-999999" },
-  ]
+  ];
 
   return (
     <form className="p-4 bg-gray-100 rounded-md mb-4 flex flex-col sm:flex-row gap-4">
@@ -77,10 +76,10 @@ export default function FilterBar({ locations }: FilterBarProps) {
           <PopoverTrigger asChild>
             <Button
               variant={"outline"}
-              size={'sm'}
+              size={"sm"}
               className={cn(
                 "w-[300px] justify-start text-left font-normal",
-                !date && "text-muted-foreground"
+                !date && "text-muted-foreground",
               )}
               onClick={() => setOpen(!open)}
             >
@@ -127,18 +126,13 @@ export default function FilterBar({ locations }: FilterBarProps) {
         </select>
       </div>
       <div className="flex flex-col self-end">
-        <Button
-          size={'sm'}
-          asChild
-        >
-          <Link href='/'>
-            Clear
-          </Link>
+        <Button size={"sm"} asChild>
+          <Link href="/">Clear</Link>
         </Button>
       </div>
     </form>
   );
-};
+}
 
 export const FilterBarSkeleton = () => {
   return (
@@ -157,4 +151,4 @@ export const FilterBarSkeleton = () => {
       </div>
     </div>
   );
-}
+};
