@@ -139,3 +139,22 @@ export default function FilterBar({ locations }: FilterBarProps) {
     </form>
   );
 };
+
+export const FilterBarSkeleton = () => {
+  return (
+    <div className="p-4 bg-gray-100 rounded-md mb-4 flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col">
+        <div className="h-9 bg-gray-200 rounded cursor-pointer"></div>
+      </div>
+      <div className="flex flex-col">
+        <div className="h-9 bg-gray-200 rounded cursor-pointer"></div>
+      </div>
+      <div className="flex flex-col">
+        <div className="h-9 bg-gray-200 rounded cursor-pointer"></div>
+      </div>
+      <div className="flex flex-col self-end">
+        <div className="h-9 bg-gray-200 rounded cursor-pointer"></div>
+      </div>
+    </div>
+  );
+}

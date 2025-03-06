@@ -1,5 +1,5 @@
 import Image from "next/image"
-import FilterBar from "./FilterBar"
+import FilterBar, { FilterBarSkeleton } from "./FilterBar"
 import { Suspense } from 'react';
 
 type Props = {
@@ -20,7 +20,7 @@ export default function Hero({ locations: locations }: Props) {
                 <div className="container grid-in-container px-4 md:px-6">
                     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white py-4">Book Your Next Awesom Experience</h1>
                     <div className="grid gap-2 max-w-lg">
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<FilterBarSkeleton />}>
                             <FilterBar locations={locations} />
                         </Suspense>
                     </div>
