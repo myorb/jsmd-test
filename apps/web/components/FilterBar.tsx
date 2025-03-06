@@ -1,9 +1,8 @@
 "use client"
 
-import React, { useState } from 'react';
-import { useRouter } from "next/navigation"
+import { useEffect, useState } from 'react';
 import { addDays, format } from "date-fns"
-import { Calendar as CalendarIcon, Search } from "lucide-react"
+import { Calendar as CalendarIcon } from "lucide-react"
 import { DateRange } from "react-day-picker"
 import { cn } from "@workspace/ui/lib/utils"
 import { Button } from "@workspace/ui/components/button"
@@ -13,46 +12,61 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@workspace/ui/components/popover"
+import { useQueryState } from 'nuqs';
+import Link from 'next/link';
 
 interface FilterBarProps {
   locations: string[];
-  maxFilterPrice: number;
 }
 
-const FilterBar = ({ locations, maxFilterPrice }: FilterBarProps) => {
-  const router = useRouter()
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(maxFilterPrice);
-  const [location, setLocation] = useState("All");
-  const [date, setDate] = useState<DateRange | undefined>({
-    from: new Date(2025, 0, 1),
-    to: addDays(new Date(), 20),
-  })
+export default function FilterBar({ locations }: FilterBarProps) {
+  const today = new Date(2025, 0, 1);
+  const inTwoWeeks = addDays(today, 14);
 
-  const handleFilter = (e: React.FormEvent) => {
-    e.preventDefault();
-    const searchParams = new URLSearchParams()
+  const [price, setPrice] = useQueryState("price", {
+    defaultValue: `0-999999`,
+    clearOnDefault: true,
+  });
+  const [location, setLocation] = useQueryState("where", {
+    defaultValue: 'all',
+    clearOnDefault: true,
+  });
+
+  const [_, setDateRange] = useQueryState("when");
+
+  const [date, setDate] = useState<DateRange | undefined>()
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
     if (date?.from && date?.to) {
-      searchParams.append("startDate", date.from?.toISOString().split('T')[0] || "")
-      searchParams.append("endDate", date.to?.toISOString().split('T')[0] || "")
+      const from = format(date.from, "yyyy-MM-dd");
+      const to = format(date.to, "yyyy-MM-dd");
+      setDateRange(`${from},${to}`);
+      setOpen(false);
     }
-    if (minPrice) searchParams.append("minPrice", minPrice.toString())
-    if (maxPrice) searchParams.append("maxPrice", maxPrice.toString())
-    if (location) searchParams.append("location", location)
-
-    router.push(`/?${searchParams.toString()}`)
   }
+  , [date])
+
+  const priceRange = [
+    { label: "Any", value: "0-999999" },
+    { label: "< $50", value: "0-50" },
+    { label: "$50 - $100", value: "50-100" },
+    { label: "$100 - $200", value: "100-200" },
+    { label: "$200 - $500", value: "200-500" },
+    { label: "> $500", value: "500-999999" },
+  ]
 
   return (
-    <form onSubmit={handleFilter} className="p-4 bg-gray-100 rounded-md mb-4 flex flex-col sm:flex-row gap-4">
+    <form className="p-4 bg-gray-100 rounded-md mb-4 flex flex-col sm:flex-row gap-4">
       <div className="flex flex-col">
         <label className="mb-1 font-medium">Where</label>
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="h-9 px-3 py-1 border rounded"
+          className="h-9 px-3 py-1 border rounded cursor-pointer"
         >
-          <option value="All">All</option>
+          <option value="any">Anywhere</option>
           {locations.map((loc) => (
             <option key={loc} value={loc}>
               {loc}
@@ -62,7 +76,7 @@ const FilterBar = ({ locations, maxFilterPrice }: FilterBarProps) => {
       </div>
       <div className="flex flex-col">
         <label className="mb-1 font-medium">When</label>
-        <Popover>
+        <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <Button
               variant={"outline"}
@@ -71,6 +85,7 @@ const FilterBar = ({ locations, maxFilterPrice }: FilterBarProps) => {
                 "w-[300px] justify-start text-left font-normal",
                 !date && "text-muted-foreground"
               )}
+              onClick={() => setOpen(!open)}
             >
               <CalendarIcon />
               {date?.from ? (
@@ -99,38 +114,31 @@ const FilterBar = ({ locations, maxFilterPrice }: FilterBarProps) => {
           </PopoverContent>
         </Popover>
       </div>
+
       <div className="flex flex-col">
-        <label className="mb-1 font-medium">Min Price:</label>
-        <input
-          type="number"
-          value={minPrice}
-          onChange={(e) => setMinPrice(Number(e.target.value))}
-          className="h-9 px-3 py-1 border rounded"
-        />
+        <label className="mb-1 font-medium">Price</label>
+        <select
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className="h-9 px-3 py-1 border rounded cursor-pointer"
+        >
+          {priceRange.map((p, i) => (
+            <option key={i} value={p.value}>
+              {p.label}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="flex flex-col">
-        <label className="mb-1 font-medium">Max Price:</label>
-        <input
-          type="number"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="h-9 px-3 py-1 border rounded"
-        />
-      </div>
-      {/* <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-end"
-      >
-        Filter
-      </button> */}
       <div className="flex flex-col self-end">
-        <Button type="submit">
-          <Search />
-          Find
+        <Button
+          size={'sm'}
+          asChild
+        >
+          <Link href='/'>
+            X Clear
+          </Link>
         </Button>
       </div>
     </form>
   );
 };
-
-export default FilterBar;

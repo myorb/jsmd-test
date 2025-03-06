@@ -3,29 +3,22 @@ import ExperiencesList from "@/components/ExperiencesList";
 import { Suspense } from 'react';
 
 import experiences from '@/data/experiences.json';
+import Link from "next/link";
+import Hero from "@/components/Hero";
 
 export default function Home() {
-  const allLocations = Array.from(
+  const locations = Array.from(
     new Set(
       experiences.flatMap(exp => exp.locations)
     )
   );
 
-  const availableDates = Array.from(
-    new Set(
-      experiences.flatMap(exp => Object.values(exp.timeSlots).flat())
-    )
-  );
-
-  const maxPrice = Math.max(...experiences.map(exp => exp.price));
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">JSMD Experiences</h1>
+    <>
+      <Hero locations={locations}/>
       <Suspense fallback={<div>Loading ...</div>}>
-        <FilterBar locations={allLocations} maxFilterPrice={maxPrice}/>
         <ExperiencesList experiences={experiences} />
       </Suspense>
-    </div>
+    </>
   )
 }

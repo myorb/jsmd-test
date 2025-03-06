@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Calendar from "@/components/Calendar"
+import BookingForm from "@/components/BookingForm"
 import experiences from '@/data/experiences.json';
 import type { Experience } from "@/types"
 
@@ -35,7 +35,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ id:
               <li key={location}>{location}</li>
             ))}
           </ul>
-          <Calendar experience={experience} />
+          <BookingForm experience={experience} />
         </div>
       </div>
     </div>

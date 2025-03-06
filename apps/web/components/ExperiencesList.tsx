@@ -6,15 +6,15 @@ import ExperienceCard from "./ExperienceCard";
 
 export default function ExperiencesList({ experiences }: { experiences: Experience[] }) {
   const searchParams = useSearchParams();
-  const startDate = searchParams.get("startDate") || "";
-  const endDate = searchParams.get("endDate") || "";
-  const minPrice = parseFloat(searchParams.get("minPrice") || "0");
-  const maxPrice = parseFloat(searchParams.get("maxPrice") || "1000");
-  const location = searchParams.get("location") || "All";
+  const location = searchParams.get("where") || "any";
+  const price = searchParams.get("price") || "0-999999";
+  const [minPrice = 0, maxPrice = 999999] = price.split("-").map(parseFloat);
+  const date = searchParams.get("when") || "";
+  const [startDate, endDate] = date.split(",");
 
   const filteredExperiences = experiences.filter((exp) => {
     const inPriceRange = exp.price >= minPrice && exp.price <= maxPrice;
-    const inLocation = location === "All" || exp.locations.includes(location);
+    const inLocation = location === "any" || exp.locations.includes(location);
 
     let inDateRange = true;
     const allSlots = Object.values(exp.timeSlots).flat();
@@ -37,7 +37,7 @@ export default function ExperiencesList({ experiences }: { experiences: Experien
   });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {filteredExperiences.length
         ? filteredExperiences.map((exp: Experience) => (
           <ExperienceCard key={exp.id} experience={exp} />

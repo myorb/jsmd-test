@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import type { Experience } from "@/types"
 
-export default function Calendar({ experience }: { experience: Experience }) {
+export default function BookingForm({ experience }: { experience: Experience }) {
   const [selectedLocation, setSelectedLocation] = useState(experience.locations[0])
   const [selectedDate, setSelectedDate] = useState("")
   const [selectedTime, setSelectedTime] = useState("")
