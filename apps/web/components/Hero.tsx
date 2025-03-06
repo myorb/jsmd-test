@@ -17,7 +17,7 @@ export default function Hero({ locations: locations }: Props) {
             />
             <div className="absolute inset-0 flex items-center">
                 <div className="container grid-in-container px-4 md:px-6">
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Book Your Dream</h1>
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white py-4">Book Your Next Awesom Experience</h1>
                     <div className="grid gap-2 max-w-lg">
                         <FilterBar locations={locations} />
                     </div>

@@ -1,9 +1,7 @@
-import FilterBar from "@/components/FilterBar"
-import ExperiencesList from "@/components/ExperiencesList";
+import ExperiencesList, { ExperiencesListSceleton } from "@/components/ExperiencesList";
 import { Suspense } from 'react';
 
 import experiences from '@/data/experiences.json';
-import Link from "next/link";
 import Hero from "@/components/Hero";
 
 export default function Home() {
@@ -16,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Hero locations={locations}/>
-      <Suspense fallback={<div>Loading ...</div>}>
+      <Suspense fallback={<ExperiencesListSceleton />}>
         <ExperiencesList experiences={experiences} />
       </Suspense>
     </>
