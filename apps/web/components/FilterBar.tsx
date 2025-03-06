@@ -20,9 +20,6 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ locations }: FilterBarProps) {
-  const today = new Date(2025, 0, 1);
-  const inTwoWeeks = addDays(today, 14);
-
   const [price, setPrice] = useQueryState("price", {
     defaultValue: `0-999999`,
     clearOnDefault: true,
@@ -135,7 +132,7 @@ export default function FilterBar({ locations }: FilterBarProps) {
           asChild
         >
           <Link href='/'>
-            X Clear
+            Clear
           </Link>
         </Button>
       </div>
